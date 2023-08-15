@@ -1,3 +1,4 @@
-import { ChainId } from "@thirdweb-dev/react";
 
-export default ChainId.Goerli;
+import { Goerli } from "@thirdweb-dev/chains";
+
+export default Goerli;
