@@ -20,7 +20,7 @@ function Header({}: Props) {
                  className="connectWalletBtn">Hi, {address.slice(0,5) +
                  "..." + address.slice(-4)}</button>
               ) : (
-                <button onClick={connectWithMetamask} className="connectWalletBtn">Connect your wallet</button>
+                <button  onClick={() => connectWithMetamask()} className="connectWalletBtn">Connect your wallet</button>
               )}
 
               <p className='hidden md:inline-flex cursor-pointer'>
