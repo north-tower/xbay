@@ -25,7 +25,7 @@ function Create({}: Props) {
             <h2 className='text-xl font-semibold pt-5'>
                 Select an Item you would like to Sell</h2>
             <hr className='mb-5' />
-            <p>Below you will find the NFT's you own in your wallet</p>
+            <p>Below you will find the NFTs you own in your wallet</p>
         
         <div className='flex overflow-x-scroll space-x-2 p-4'>
             {ownedNfts?.data?.map((nft) => (

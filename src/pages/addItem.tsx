@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 type Props = {}
 
-function addItem({}: Props) {
+function AddItem({}: Props) {
     const address = useAddress();
     const router = useRouter();
     const [preview, setPreview] = useState<string>();
@@ -56,7 +56,7 @@ function addItem({}: Props) {
             <h1 className='text-4xl font-bold'>Add an Item to the Marketplace</h1>
             <h2 className='text-xl font-semibold pt-5'>Item Details</h2>
             <p className='pb-5'>
-                By adding an item to the marketplace, you're essentially Minting an 
+                By adding an item to the marketplace, youre essentially Minting an 
                 NFT of the item into your wallet which we can then list for sale!
             </p>
 
@@ -98,4 +98,4 @@ function addItem({}: Props) {
   )
 }
 
-export default addItem
+export default AddItem
