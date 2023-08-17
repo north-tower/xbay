@@ -6,12 +6,12 @@ import { BanknotesIcon, ClockIcon } from '@heroicons/react/24/outline'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const { contract } = useContract(process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT, 
+  const { contract } = useContract("0x1f3a4c667bc97899304E4849705C88FB8C334E11" 
     "marketplace")
 
   const { data: listings, isLoading: loadingListings } = useActiveListings(contract)
   
-  console.log(listings)
+
   
   return (
    <div >
