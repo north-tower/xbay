@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import Header from '../components/Header'
 import { useActiveListings, useContract, MediaRenderer, ListingType } from '@thirdweb-dev/react'
 import { BanknotesIcon, ClockIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,8 +23,10 @@ export default function Home() {
         <p className='text-center animate-pulse text-blue-500'>
           Loading Listings</p> :
           <div className='grid grid-cols-1 sm:grid-cols-2 
-          md:grid-cols-3 lg:grid-cols-4 gap-5 mx-auto '>
-            {listings?.map(listing => (
+          md:grid-cols-3 lg:grid-cols-4 gap-5 mx-auto'>
+
+            {listings?.map((listing) => (
+              <Link href={`/listing/${listing.id}`}>
               <div className='flex flex-col card hover:scale-105
               transition-all duration-150 ease-out' key={listing.id}>
                 <div className='flex-1 flex flex-col pb-2 items-center'>
@@ -64,6 +67,7 @@ export default function Home() {
                 </div>
                 </div>
               </div>
+              </Link>
             ))}
           </div>
             }
