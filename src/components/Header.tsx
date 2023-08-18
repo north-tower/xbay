@@ -55,7 +55,7 @@ function Header({}: Props) {
             <Link href='/'>
               <Image alt="Xbay Logo" 
               className='h-full w-full object-contain'
-              src="https://links.papareact.com/bdb"
+              src="https://i.postimg.cc/T1sbnvB6/MK-logo-design-Idea.jpg"
               width={100}
               height={100} />
             </Link>
