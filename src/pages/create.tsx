@@ -30,7 +30,7 @@ function Create({}: Props) {
         <div className='flex overflow-x-scroll space-x-2 p-4'>
             {ownedNfts?.data?.map((nft) => (
                 <div key={nft.metadata.id} className='flex flex-col 
-                space-y-2 card min-w-fit border-2 bg-gray-100'>
+                space-y-2 card min-w-fit border-2 bg-green-50'>
                     <MediaRenderer className='h-48 rounded-lg'
                     src={nft.metadata.image} />
                 <p className='text-lg truncate font-bold'>

@@ -1,13 +1,18 @@
 import { useRouter } from 'next/router';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { ListingType, MediaRenderer, useContract, useListing } from "@thirdweb-dev/react"
 import Header from '@/components/Header';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 
+
 function ListingPage() {
     const router = useRouter();
     const{ listingId } = router.query as { listingId: string };
+    const [ minimumNextBid, setMinimumNextBid ] = useState<{
+        displayValue: string;
+        symbol: string;
+    }>()
 
     const { contract } = useContract(
         process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT,"marketplace"
@@ -15,6 +20,38 @@ function ListingPage() {
 
     const { data: listing, isLoading, error} = 
     useListing(contract, listingId);
+
+    useEffect(()=> {
+        if (!listingId || !contract || !listing) return;
+
+        if(listing.type === ListingType.Auction){
+            fetchMinNextBid();
+        }
+    }, [listing, listing, contract])
+
+
+    const fetchMinNextBid = async () => {
+        if (!listingId || !contract) return;
+
+        const { displayValue, symbol } = await contract.auction.getMinimumNextBid(listingId);
+        setMinimumNextBid({
+            displayValue: displayValue,
+            symbol: symbol,
+        })
+    }
+
+    const formatPlaceholder = () => {
+        if(!listing) return;
+
+        if (listing.type === ListingType.Direct){
+            return "Enter Offer Amount";
+        }
+
+        if (listing.type === ListingType.Auction){
+            return Number(minimumNextBid?.displayValue) === 0 
+            ? "Enter Bid Amount" : `${minimumNextBid?.displayValue} ${minimumNextBid?.symbol} or more`;
+        }
+    }
 
     if(isLoading)
     return (
@@ -77,9 +114,18 @@ function ListingPage() {
                         "Make an Offer" : "Bid on this Auction"}
                     </p>
 
+                    {listing.type === ListingType.Auction && (
+                        <>
+                            <p>Current Minimum Bid:</p>
+                            <p>...</p>
+                            <p>Time Remaining:</p>
+                            <p>...</p>
+                        </>
+                    )}
+
                     <input 
                     className='border p-2 rounded-lg mr-5 outline-red-500'
-                    type='text' placeholder='Enter Value...' />
+                    type='text' placeholder={formatPlaceholder()} />
                     <button className='bg-red-600 font-bold text-white rounded-full
                     w-44 py-4 px-10'>
                         {listing.type === ListingType.Direct ? "Offer" : "Bid"}

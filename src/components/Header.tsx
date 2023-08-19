@@ -50,12 +50,12 @@ function Header({}: Props) {
         <hr  className='mt-2' />
 
         <section className='flex items-center space-x-2 py-5'>
-          <div className='h-16 w-16 sm:w-28 md:w-44 cursor-pointer 
+          <div className='h-20 w-20 rounded-full sm:w-28 md:w-44 cursor-pointer 
           flex-shrink-0'>
             <Link href='/'>
               <Image alt="Xbay Logo" 
               className='h-full w-full object-contain'
-              src="https://links.papareact.com/bdb"
+              src="https://i.postimg.cc/VkPjS0yB/Black-White-Typography-Creative-Artist-Art-Design-Logo-1.png"
               width={100}
               height={100} />
             </Link>
@@ -77,7 +77,7 @@ function Header({}: Props) {
 
           <Link href="/create">
           <button className='border-2 border-green-400 px-5 md:px-10 py-2
-           text-blue-400 hover:bg-green-600/50 hover:text-white 
+           text-green-400 hover:bg-green-600/50 hover:text-white 
            cursor-pointer'>List Item</button>
 
           </Link>

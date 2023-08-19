@@ -5,7 +5,7 @@ import {  ThirdwebProvider } from "@thirdweb-dev/react"
 export default function App({ Component, pageProps }: AppProps) {
   return(
   <ThirdwebProvider activeChain="goerli" clientId="ec5b14eb7226eb33aa777941f4a63efd">
-   <Component {...pageProps} />
+   <Component {...pageProps} className="h-screen bg-black bg-black-image bg-cover bg-center bg-no-repeat" />
 
   </ThirdwebProvider>
   )

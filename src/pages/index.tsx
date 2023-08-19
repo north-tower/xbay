@@ -26,7 +26,7 @@ export default function Home() {
           md:grid-cols-3 lg:grid-cols-4 gap-5 mx-auto'>
 
             {listings?.map((listing) => (
-              <Link href={`/listing/${listing.id}`}>
+              <Link href={`/listing/${listing.id}`} key={listing.id}>
               <div className='flex flex-col card hover:scale-105
               transition-all duration-150 ease-out' key={listing.id}>
                 <div className='flex-1 flex flex-col pb-2 items-center'>
