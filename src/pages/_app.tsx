@@ -1,8 +1,6 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react"
-import { Goerli } from '@thirdweb-dev/chains'
-
+import {  ThirdwebProvider } from "@thirdweb-dev/react"
 
 export default function App({ Component, pageProps }: AppProps) {
   return(

@@ -4,7 +4,7 @@
 
 @layer components {
     .connectWalletBtn {
-      @apply bg-blue-500 text-white font-bold py-2 px-4 rounded cursor-pointer;
+      @apply bg-green-400 text-white font-bold py-2 px-4 rounded cursor-pointer;
 
     }
 
@@ -15,7 +15,7 @@
       @apply hover:text-blue-500 hover:underline cursor-pointer text-gray-600;
     }
     .card{
-      @apply border border-gray-200 rounded-md p-5 bg-gray-50 cursor-pointer hover:bg-gray-100
+      @apply border border-green-200 rounded-md p-5 bg-green-50 cursor-pointer hover:bg-green-100
     }
 
     .formField{

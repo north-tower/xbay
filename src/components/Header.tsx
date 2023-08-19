@@ -55,7 +55,7 @@ function Header({}: Props) {
             <Link href='/'>
               <Image alt="Xbay Logo" 
               className='h-full w-full object-contain'
-              src="https://links.papareact.com/bdb"
+              src="https://i.postimg.cc/SQYKDP2j/Minimalist-Simple-Brand-Initial-Logo.png"
               width={100}
               height={100} />
             </Link>
@@ -72,12 +72,12 @@ function Header({}: Props) {
              placeholder="Search for Anything" type='text' />
           </div>
 
-          <button className='hidden sm:inline bg-blue-600 text-white px-5 
-          md:px-10 py-2 border-2 border-blue-600'>Search</button>
+          <button className='hidden sm:inline bg-green-400 text-white px-5 
+          md:px-10 py-2 border-2 border-green-400'>Search</button>
 
           <Link href="/create">
-          <button className='border-2 border-blue-600 px-5 md:px-10 py-2
-           text-blue-600 hover:bg-blue-600/50 hover:text-white 
+          <button className='border-2 border-green-400 px-5 md:px-10 py-2
+           text-blue-400 hover:bg-green-600/50 hover:text-white 
            cursor-pointer'>List Item</button>
 
           </Link>
