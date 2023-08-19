@@ -86,7 +86,7 @@ function AddItem({}: Props) {
                         }
                     }} />
 
-                    <button type='submit' className='bg-blue-600 font-bold 
+                    <button type='submit' className='bg-green-600 font-bold 
                     text-white rounded-full py-4 px-10 w-56  
                     md:mt-auto mx-auto md:ml-auto'>Add/Mint Item
 
