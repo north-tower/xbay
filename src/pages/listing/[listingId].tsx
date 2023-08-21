@@ -4,11 +4,21 @@ import React, { useEffect, useState } from 'react'
 import { ListingType, MediaRenderer, useContract, useListing } from "@thirdweb-dev/react"
 import Header from '@/components/Header';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
+import Countdown from "react-countdown"
+import {
+     useNetwork, useNetworkMismatch, useMakeBid,
+    useOffers,useMakeOffer, useBuyNow,useAddress,
+} from "@thirdweb-dev/react"
+import Goerli from '../../../utils/network';
 
 
 function ListingPage() {
     const router = useRouter();
+    const [bidAmount, setBidAmount] = useState('');
     const{ listingId } = router.query as { listingId: string };
+    const [, switchNetwork] = useNetwork();
+    const networkMismatch = useNetworkMismatch();
+
     const [ minimumNextBid, setMinimumNextBid ] = useState<{
         displayValue: string;
         symbol: string;
@@ -53,6 +63,32 @@ function ListingPage() {
         }
     }
 
+    const buyNft = async () => {
+        if(networkMismatch) {
+            switchNetwork && switchNetwork(Goerli.chainId)
+            return
+        }
+    }
+
+    const createBidOrOffer = async () => {
+        try {
+            if (networkMismatch) {
+                switchNetwork && switchNetwork(Goerli.chainId);
+                return
+            }
+
+            if(listing?.type === ListingType.Direct){
+                
+            }
+            if (listing?.type === ListingType.Auction){
+
+            }
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+    }
     if(isLoading)
     return (
         <div>
@@ -116,17 +152,23 @@ function ListingPage() {
 
                     {listing.type === ListingType.Auction && (
                         <>
+
                             <p>Current Minimum Bid:</p>
-                            <p>...</p>
+                            <p className='font-bold'>{minimumNextBid?.displayValue} 
+                            {minimumNextBid?.symbol}</p>
                             <p>Time Remaining:</p>
-                            <p>...</p>
+                            <Countdown 
+                            date={Number(listing.endTimeInEpochSeconds.toString())
+                                *1000
+                            }/>
                         </>
                     )}
 
-                    <input 
+                    <input onChange={e => setBidAmount(e.target.value)}
                     className='border p-2 rounded-lg mr-5 outline-red-500'
                     type='text' placeholder={formatPlaceholder()} />
-                    <button className='bg-red-600 font-bold text-white rounded-full
+                    <button onClick={createBidOrOffer}
+                    className='bg-red-600 font-bold text-white rounded-full
                     w-44 py-4 px-10'>
                         {listing.type === ListingType.Direct ? "Offer" : "Bid"}
                     </button>
