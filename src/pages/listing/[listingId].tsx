@@ -6,17 +6,18 @@ import Header from '@/components/Header';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 import Countdown from "react-countdown"
 import {
-     useNetwork, useNetworkMismatch, useMakeBid,
+      useSwitchChain, useNetworkMismatch, useMakeBid,
     useOffers,useMakeOffer, useBuyNow,useAddress,
 } from "@thirdweb-dev/react"
 import Goerli from '../../../utils/network';
+import { ethers } from 'ethers';
 
 
 function ListingPage() {
     const router = useRouter();
     const [bidAmount, setBidAmount] = useState('');
     const{ listingId } = router.query as { listingId: string };
-    const [, switchNetwork] = useNetwork();
+     const switchNetwork = useSwitchChain();
     const networkMismatch = useNetworkMismatch();
 
     const [ minimumNextBid, setMinimumNextBid ] = useState<{
@@ -28,8 +29,15 @@ function ListingPage() {
         process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT,"marketplace"
     )
 
+    const { mutate: makeBid } = useMakeBid(contract);
+
+    const { mutate: buyNow } = useBuyNow(contract);
+    const { mutate: makeOffer } = useMakeOffer(contract);
+    const { data: offers } = useOffers(contract, listingId);
+
     const { data: listing, isLoading, error} = 
     useListing(contract, listingId);
+    console.log(offers);
 
     useEffect(()=> {
         if (!listingId || !contract || !listing) return;
@@ -68,6 +76,26 @@ function ListingPage() {
             switchNetwork && switchNetwork(Goerli.chainId)
             return
         }
+
+        if (!listingId || !contract || !listing) return;
+
+        await buyNow({
+            id: listingId,
+            buyAmount: 1,
+            type: listing.type,
+        },
+        {
+            onSuccess(data, variables, context) {
+                alert("NFT BOUGHT");
+                console.log("SUCCESS",  data, variables, context)
+                router.replace("/")
+            },
+            onError(error, variables, context){
+                alert("Erro")
+                console.log("Error",error, variables, context)
+            }
+        })
+        
     }
 
     const createBidOrOffer = async () => {
@@ -78,9 +106,51 @@ function ListingPage() {
             }
 
             if(listing?.type === ListingType.Direct){
+                if (listing.buyoutPrice.toString() === 
+                ethers.utils.parseEther(bidAmount).toString()){
+                    console.log("Buyout Price Met,buying nft...")
+
+                    buyNft();
+                    return;
+                }
+                console.log("Buyout price not met, making offer...")
+                await makeOffer({
+                    quantity: 1,
+                    listingId,
+                    pricePerToken: bidAmount
+                }, {
+                    onSuccess(data, variables, context) {
+                        alert("Offer Made");
+                        console.log("SUCCESS", data, variables, context);
+                        setBidAmount('')
+                    },
+                    onError(error, variables, context) {
+                        alert("Error")
+                        console.log("ERROR", error, variables, context)
+                    }
+                })
                 
             }
             if (listing?.type === ListingType.Auction){
+                console.log("Making Bid")
+
+                await makeBid(
+                    {
+                        listingId,
+                        bid: bidAmount
+                    },
+                    {
+                        onSuccess(data, variables, context) {
+                            alert("Bid made")
+                            console.log("SUCCESS", data, variables, context)
+                            setBidAmount('')
+                        },
+                        onError(error, variables, context){
+                            alert("Erro")
+                            console.log("Error", error, variables, context)
+                        }
+                    }
+                )
 
             }
             
@@ -137,7 +207,7 @@ function ListingPage() {
                         {listing.buyoutCurrencyValuePerToken.symbol}
                     </p>
 
-                    <button className='col-start-2 mt-2 bg-green-500 font-bold 
+                    <button  onClick={buyNft} className='col-start-2 mt-2 bg-green-500 font-bold 
                     text-white rounded-full w-44 py-4 px-10'>
                         Buy Now
                     </button>
