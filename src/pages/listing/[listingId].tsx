@@ -1,16 +1,17 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
-import { ListingType, MediaRenderer, useContract, useListing } from "@thirdweb-dev/react"
+import { ListingType, MediaRenderer, NATIVE_TOKENS, useContract, useListing } from "@thirdweb-dev/react"
 import Header from '@/components/Header';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 import Countdown from "react-countdown"
 import {
       useSwitchChain, useNetworkMismatch, useMakeBid,
-    useOffers,useMakeOffer, useBuyNow,useAddress,
+    useOffers,useMakeOffer, useBuyNow,useAddress,useAcceptDirectListingOffer
 } from "@thirdweb-dev/react"
 import Goerli from '../../../utils/network';
 import { ethers } from 'ethers';
+
 
 
 function ListingPage() {
@@ -19,6 +20,8 @@ function ListingPage() {
     const{ listingId } = router.query as { listingId: string };
      const switchNetwork = useSwitchChain();
     const networkMismatch = useNetworkMismatch();
+    const address = useAddress()
+
 
     const [ minimumNextBid, setMinimumNextBid ] = useState<{
         displayValue: string;
@@ -30,6 +33,7 @@ function ListingPage() {
     )
 
     const { mutate: makeBid } = useMakeBid(contract);
+    const { mutate: acceptOffer } = useAcceptDirectListingOffer(contract)
 
     const { mutate: buyNow } = useBuyNow(contract);
     const { mutate: makeOffer } = useMakeOffer(contract);
@@ -37,7 +41,8 @@ function ListingPage() {
 
     const { data: listing, isLoading, error} = 
     useListing(contract, listingId);
-    console.log(offers);
+    
+
 
     useEffect(()=> {
         if (!listingId || !contract || !listing) return;
@@ -212,6 +217,58 @@ function ListingPage() {
                         Buy Now
                     </button>
                 </div>
+
+                {listing.type === ListingType.Direct && offers && (
+                    <div className='grid grid-cols gap-y-2'>
+                    <p className='font-bold'>Offers:</p>
+                    <p className='font-bold'>{offers.length > 0 ? 
+                    offers.length : 0 }</p>
+                    {offers.map(offer => (
+                        <>
+                        <p className='flex items-center ml-5 text-sm italic'>
+                          <UserCircleIcon className='h-3 mr-2' />
+
+                          {offer.offeror.slice(0,5) + "..." + 
+                          offer.offeror(-5)}
+                        </p>
+                        <div>
+                            <p key={
+                                offer.listingId + offer.offeror + 
+                                offer.totalOfferAmount.toString()
+                            } className='text-sm italic'>
+                                {ethers.utils.formatEther(offer.totalOfferAmount)}(" ")
+                                {NATIVE_TOKENS[Goerli.chainId].symbol}
+                            </p>
+
+                            {listing.sellerAddress === address && (
+                                <button onClick={() => {
+                                    acceptOffer({
+                                        listingId,
+                                        addressOfOfferor: offer.offeror
+                                    }, {
+                                        onSuccess(data, variables, context) {
+                                            alert("Offer Accepted successfully!");
+                                            console.log("Success",
+                                            data,variables,context)
+                                            router.replace("/")
+                                        },
+                                        onError(error, varibles, context){
+                                            alert("Error")
+                                            console.log("Erro", error)
+                                        }
+                                    })
+                                }} >
+                                    Accept Offer
+                                </button>
+                            )}
+                        </div>
+                        
+                        </>
+                    ))}                  
+
+                    
+                    </div>
+                )}
 
                 <div className='grid grid-cols-2 space-y-2 items-center justify-end'>
                     <hr className='col-span-2' />
