@@ -236,7 +236,7 @@ function ListingPage() {
                                 offer.listingId + offer.offeror + 
                                 offer.totalOfferAmount.toString()
                             } className='text-sm italic'>
-                                {ethers.utils.formatEther(offer.totalOfferAmount)}(" ")
+                                {ethers.utils.formatEther(offer.totalOfferAmount)}{" "}
                                 {NATIVE_TOKENS[Goerli.chainId].symbol}
                             </p>
 
