@@ -60,7 +60,18 @@ function tron({}: Props) {
                     345 Bandwidth <span className='ml-16'>31,895 Energy</span>
                 </span>
                </div>           
-               
+               <div className='m-4'> 
+                    <span className='bg-gray-200 rounded-full pl-1 pr-1'> ? </span> Resources Consumed & Fee: 
+                     <span className='ml-20'>
+                    345 Bandwidth <span className='ml-16'>31,895 Energy</span>
+                </span>
+               </div>  
+               <div className='m-4'> 
+                    <span className='bg-gray-200 rounded-full pl-1 pr-1'> ? </span> Resources Consumed & Fee: 
+                     <span className='ml-20'>
+                    345 Bandwidth <span className='ml-16'>31,895 Energy</span>
+                </span>
+               </div>  
             </div>
         </div>
     </div>
