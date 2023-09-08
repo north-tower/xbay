@@ -39,7 +39,7 @@ function tex({}: Props) {
         <h1 className="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
           Texlar Mtaani
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500">
-            Hero Message
+            via pinks
           </span>
           to sell yourself!
         </h1>
