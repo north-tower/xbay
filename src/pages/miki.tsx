@@ -28,8 +28,20 @@ function miki({}: Props) {
                 <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path>
               </svg>
             </a>
+
           </div>
       miki</div>
+      </div>
+      </div>
+    
+      <div className="container pt-5 md:pt-10 mx-auto flex flex-wrap flex-row items-center w-full md:w-3/5 lg:w-3/5">
+        <h1 className="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
+          Texlar Mtaani
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500">
+            via pinks
+          </span>
+          to sell yourself!
+        </h1>
   )
 }
 
