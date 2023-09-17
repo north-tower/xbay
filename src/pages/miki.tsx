@@ -42,6 +42,17 @@ function miki({}: Props) {
           </span>
           to sell yourself!
         </h1>
+        <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
+          Sub-hero message, not too long and not too short. Make it just right!
+        </p>
+
+    </div>
+    <div className="container pt-5 md:pt-10 mx-auto flex flex-wrap flex-row items-center w-full md:w-3/5 lg:w-3/5">
+        <h1 className="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
+          Texlar Mtaani
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500">
+            via pinks
+          </span>
   )
 }
 
