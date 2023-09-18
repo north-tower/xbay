@@ -4,6 +4,9 @@ type Props = {}
 
 function miki({}: Props) {
   return (
+    <>
+    
+  
     <div  className="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style={{ backgroundImage: "url('header.png')" }}>
        
        <div className="w-full md:w-3/5 lg:md:3/5 container mx-auto">
@@ -60,9 +63,8 @@ function miki({}: Props) {
         </p>
 
     </div>
-    </div>
-  )
-}
+    </>
+
   )
 }
 
