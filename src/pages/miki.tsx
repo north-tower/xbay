@@ -53,6 +53,16 @@ function miki({}: Props) {
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500">
             via pinks
           </span>
+          to sell yourself!
+        </h1>
+        <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
+          Sub-hero message, not too long and not too short. Make it just right!
+        </p>
+
+    </div>
+    </div>
+  )
+}
   )
 }
 
