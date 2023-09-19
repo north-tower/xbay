@@ -23,6 +23,7 @@ function Header({}: Props) {
               <p className='hidden md:inline-flex cursor-pointer'>Governance</p>
               <p className='hidden md:inline-flex cursor-pointer'>Tron Ecosysytem</p>
               <p className='hidden md:inline-flex cursor-pointer'>More</p>           
+              <p className='hidden md:inline-flex cursor-pointer'>More</p>          
 
             </div>
             <div className='flex items-center space-x-2 text-sm'>
