@@ -6,6 +6,14 @@ import { useAddress, useContract, MediaRenderer, useNetwork, useNetworkMismatch,
 
 type Props = {}
 
+import Header from '@/components/Header'
+import React from 'react'
+import { useAddress, useContract, MediaRenderer, useNetwork, useNetworkMismatch,
+    useOwnedNFTs, useCreateAuctionListing, useCreateDirectListing
+ } from '@thirdweb-dev/react'
+
+type Props = {}
+
 function Create({}: Props) {
     const address = useAddress();
     const { contract } = useContract(
@@ -50,6 +58,9 @@ function Create({}: Props) {
 }
 
 export default Create
+
+
+
 
 
 
