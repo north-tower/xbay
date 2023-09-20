@@ -6,13 +6,6 @@ import { useAddress, useContract, MediaRenderer, useNetwork, useNetworkMismatch,
 
 type Props = {}
 
-import Header from '@/components/Header'
-import React from 'react'
-import { useAddress, useContract, MediaRenderer, useNetwork, useNetworkMismatch,
-    useOwnedNFTs, useCreateAuctionListing, useCreateDirectListing
- } from '@thirdweb-dev/react'
-
-type Props = {}
 
 // Import necessary hooks and components
 
