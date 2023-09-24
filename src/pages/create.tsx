@@ -24,19 +24,6 @@ function Create({}: Props) {
     const createDirectListing = useCreateDirectListing(contract);
 
     // Function to list NFT in marketplace
-  const listNFT = async (nftId: string, price: number, isAuction: boolean) => {
-    try {
-        if(isAuction) {
-            await createAuctionListing(nftId, price);
-        } else {
-            await createDirectListing(nftId, price);
-        }
-        // Handle success (e.g., show a success message)
-    } catch (error) {
-        // Handle error (e.g., show an error message)
-        console.error(error);
-    }
-}
 
     return (
         <div>
@@ -56,14 +43,7 @@ function Create({}: Props) {
                             <p className='text-xs truncate'>
                                 {nft.metadata.description}</p>
 
-                            {/* Button to list NFT */}
-                            <button onClick={() => listNFT(nft.metadata.id, 100, true)}>
-                                List in Auction
-                            </button>
-
-                            <button onClick={() => listNFT(nft.metadata.id, 200, false)}>
-                                List Directly
-                            </button>
+                           
                         </div>
                     ))}
                 </div>

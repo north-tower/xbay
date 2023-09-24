@@ -121,7 +121,7 @@ function ListingPage() {
                 console.log("Buyout price not met, making offer...")
                 await makeOffer({
                     quantity: 1,
-                    listingId,
+                    listingId: listingId,
                     pricePerToken: bidAmount
                 }, {
                     onSuccess(data, variables, context) {
@@ -141,7 +141,7 @@ function ListingPage() {
 
                 await makeBid(
                     {
-                        listingId,
+                        listingId: listingId,
                         bid: bidAmount
                     },
                     {
