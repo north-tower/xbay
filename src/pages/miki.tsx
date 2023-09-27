@@ -4,7 +4,9 @@ type Props = {}
 
 function miki({}: Props) {
   return (
-    <div>miki</div>
+    <div>miki
+      <h1>mikiss</h1>
+    </div>
   )
 }
 
