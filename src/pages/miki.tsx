@@ -7,6 +7,9 @@ function miki({}: Props) {
     <div>miki
       <h1>mikiss</h1>
       <h1>mikiss</h1>
+      <h1>mikiss</h1>
+
+
       
       
     </div>
