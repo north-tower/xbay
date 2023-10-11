@@ -17,7 +17,8 @@ function miki({}: Props) {
        <h1>mianatures</h1>
        <h1>mianatures</h1>
        <h1>mianatures</h1>
-       <h1>mianatures</h1>
+       <h1>mianatures</h1>c
+       <h1>mianatures</h1>c
 
       
 
