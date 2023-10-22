@@ -25,7 +25,7 @@ function miki({}: Props) {
         })
       }
     >
-      Make Bid
+      Make Offer
     </Web3Button>   
       
     </div>
