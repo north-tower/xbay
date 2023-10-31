@@ -12,7 +12,7 @@ function Header({}: Props) {
   const address = useAddress();
   
   return (
-    <div className='max-w-5xl mx-auto p-2'>
+    <div className='max-w-7xl mx-auto p-2'>
         <nav className='flex justify-between'>
            
             <div className='flex items-center space-x-4 text-sm'>
@@ -39,17 +39,7 @@ function Header({}: Props) {
              
             </div>
         </nav>
-
-        <hr  className='mt-2' />
-        <Image src={'https://www.remotasks.com/static/images/collaboration.svg'} alt={'amkk'} width={120} height={120}/>
-
-        <section className='flex items-center max-w-5xl  mx-auto p-2 space-x-2 py-5 '>
-          <div className='flex items-center space-x-2 px-2 md:px-5 py-2 border-gray-200 rounded-md border-2 flex-1'>
-            Progress Tracker
-          </div>
-
-         
-        </section>
+        
     </div>
   )
 }
