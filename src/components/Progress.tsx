@@ -62,19 +62,34 @@ function Progress({}: Props) {
                 </span>
                 <span className='text-sm text-gray-500'>4 Remopoints to be promoted</span>
               </div>
+      </div> 
+</div>
+ 
+   </div>
+   <div className=' rounded-md p-2 mt-2'>
+                <div className="flex flex-row">
+                  <div className="basis-1/2">
+                    <span className='text-gray-500 text-sm'>
+                    Oct 9- Nov 12
+                  </span>
+              <div className="flex items-center">
+               
+                <span className='text-sm'>Last 5 weeks</span>
+              </div>
+              </div>
+              <div className="basis-1/2">
+     
+              <div className="flex ">
+                <span className="">
+                  <FireIcon className="h-4 w-4 text-amber-400" />
+                </span>
+                <span className='text-sm text-gray-500'>0 Remopoints</span>
+              </div>
         
       
       </div>
-
-      
-  
-</div>
-
-
-  
- 
-    
-   </div>
+      </div>
+      </div>
    </div>
 
 
