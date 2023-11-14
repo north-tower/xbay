@@ -14,13 +14,13 @@ function Project({}: Props) {
               alt={'amkk'} width={280} height={280} />
           </div>
           <div className='ml-12 w-full'>
-            <p className=''>Welcome back, John!</p>
+            <p className='font-medium text-lg'>Welcome back, Mike!</p>
             <div className='flex flex-row '>
-              <div className='space-x-2 px-2 md:px-5 py-1 bg-gray-50 border-gray-100
+              <div className='space-x-2 px-2 md:px-5 py-1 bg-gray-100 border-gray-100
                rounded-md border-1 mt-4 w-full'>
                 <div className="flex items-center">
-                  <span >Your Active Projects </span>
-                  <span className='m-1'><InformationCircleIcon className='h-5'/></span>
+                  <span className='font-medium' >Your Active Projects </span>
+                  <span className='m-1'><InformationCircleIcon className='h-5 text-gray-400'/></span>
                   
                 </div>
                <div className="flex items-center justify-between">

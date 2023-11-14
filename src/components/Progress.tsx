@@ -22,17 +22,17 @@ function Progress({}: Props) {
 
                     <span className='ml-96 bg-gray-200 rounded-md p-1'>
                        
-                        Nov-13-Nov 19</span>
+                        Nov 13-Nov 19</span>
 
                 </div>
                 
-<div className="flex justify-between mb-1">
-  <span className="text-base font-medium text-blue-700 dark:text-white">Flowbite</span>
-  <span className="text-sm font-medium text-blue-700 dark:text-white">45%</span>
-</div>
-<div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-  <div className="bg-gray-100 h-2.5 rounded-full" ></div>
-</div>
+                <div className="flex justify-between mb-1">
+                  <span className="text-base font-medium text-blue-700 dark:text-white">Flowbite</span>
+                  <span className="text-sm font-medium text-blue-700 dark:text-white">45%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                  <div className="bg-gray-100 h-2.5 rounded-full" ></div>
+                </div>
 
                 </div>
             </div>
