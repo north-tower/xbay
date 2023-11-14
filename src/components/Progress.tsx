@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarIcon } from "@heroicons/react/24/outline"
+import { CalendarIcon , MinusCircleIcon} from "@heroicons/react/24/solid"
 
 
 type Props = {}
@@ -42,11 +42,23 @@ function Progress({}: Props) {
                 <h4 className='font-bold pb-2'>
                     Current Status
                 </h4>
-                <div className='bg-gray-200 rounded-md p-2'>
-                    <span className='text-gray-500 text-sm'>
+                <div className='bg-gray-200 rounded-md p-2 '>
+                  
+                  <span className='text-gray-500 text-sm'>
                     Tier
-
                     </span>
+                
+                  
+                  <div className="flex items-center">
+                    <span className="">
+                      <MinusCircleIcon className="h-4 w-4 text-gray-600" />
+                    </span>
+                      <span className='text-sm'>Standard</span>
+                    </div>
+                    <div className="text-right mt-0">
+      <span className='text-sm text-gray-500'>Additional text aligned to the right</span>
+    </div>
+
                 </div>
             </div>
             </div>
