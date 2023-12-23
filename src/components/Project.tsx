@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { InformationCircleIcon, BellIcon } from "@heroicons/react/24/outline";
+import { PencilIcon } from "@heroicons/react/24/solid";
+
 
 type Props = {};
 
@@ -24,11 +26,16 @@ function Project({}: Props) {
                   
                 </div>
                <div className="flex items-center justify-between">
+               <div className="flex items-center">
+                  <span className='' >Cupcake Oxen,Offer Dancing</span>
+                  <span className=''><PencilIcon className='h-3 text-gray-400'/></span>
+                  
+                </div>
               
-                <span className='pr-36'>No active project</span>  
+               
               <span className='pl-64'>
 
-              <button className='bg-sky-600 text-white  rounded-md p-2'>Start Tasking </button>
+              <button className='bg-sky-500 text-white  rounded-md px-2 py-4 font-medium'>Start Tasking </button>
 
               </span>
               </div>
